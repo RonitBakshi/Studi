@@ -1,24 +1,36 @@
-@mixin flexible($justify,$align,$direction) {
-    display: flex;
-    align-items: $align;
-    justify-content: $justify;
-    flex-direction: $direction;
-}
-
 $colour : (
     "maroon" : #A44884,
     "white" : #ffffff,
     "button-blue" : #1AAFFA,
     "dark-blue-text": #1268B3,
     "light-blue-text": #4A97C6,
+    "icon-blue": #1BB7EA,
     "navy" : #006299,
     "app-black": #202020,
     "grey": #969696,
-    "text-grey": #757575
+    "text-grey": #757575,
+    "off-white": #F0F7FC,
+    "card-white": #E5F6FF,
+    "card-blue": #BBE7FF,
+    "background-blue": #DFF3FD,
+    "container-background": #ECF9FF,
+    "input-grey": #D5D5D5,
+    "input-dark-grey": #414141,
+    "btn-background": #D1EFFE,
+    "btn-blue": #76CFFC,
+    "green": #00C07B,
+    "success-green": #02B55C,
+    "header-btn": #5893C5
 );
 
-.bold {
-    font-weight: bold;
+$family-primary :'Montserrat', sans-serif;
+$family-secondary : 'lato', sans-serif;
+
+@mixin fixed-alignment ($top,$rignt,$bottom,$left) {
+    top: $top;
+    right: $rignt;
+    bottom: $bottom;
+    left: $left;
 }
 
 * {
@@ -27,21 +39,226 @@ $colour : (
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("/assets/Background.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-color: map-get($map: $colour, $key: "background-blue");
+}
+
+.family-primary, h1, h2, h3 {
+    font-family: $family-primary;
+}
+
+.family-secondary, p{
+    font-family: $family-secondary;
+}
+
+.fw {
+    &-verylight {
+        font-weight: 300;
+    }
+
+    &-light {
+        font-weight: 400;
+    }
+
+    &-normal {
+        font-weight: 500;
+    }
+
+    &-medium {
+        font-weight: 600;
+    }
+
+    &-bold {
+        font-weight: 700;
+    }
+}
+
+.fs {
+    &-10 {
+        font-size: 10px;
+    }
+
+    &-12 {
+        font-size: 12px;
+    }
+
+    &-13 {
+        font-size: 13px;
+    }
+
+    &-14 {
+        font-size: 14px;
+    }
+
+    &-15 {
+        font-size: 15px;
+    }
+
+    &-16 {
+        font-size: 16px;
+    }
+
+    &-18 {
+        font-size: 18px;
+    }
+
+    &-20 {
+        font-size: 20px;
+    }
+
+    &-22 {
+        font-size: 22px;
+    }
+}
+
+.fc {
+    &-maroon {
+        color: map-get($map: $colour, $key: "maroon");
+    }
+
+    &-green {
+        color: map-get($map: $colour, $key: "success-green");
+    }
+
+    &-navy {
+        color: map-get($map: $colour, $key: "navy");
+    }
+
+    &-white {
+        color: map-get($map: $colour, $key: "white");
+    }
+}
+
+.td {
+
+    &-line-through {
+        text-decoration: line-through;
+    }
+}
+
+.lh {
+    &-18 {
+        line-height: 18px;
+    }
+
+    &-22 {
+        line-height: 22px;
+    }
+}
+
 a {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items {
+
+    &-center {
+        align-items: center;
+    }
+
+    &-end {
+        align-items: flex-end;
+    }
+}
+
+.justify-content {
+
+    &-center {
+        justify-content: center;
+    }
+
+    &-space-between {
+        justify-content: space-between;
+    }
+
+    &-space-around {
+        justify-content: space-around;
+    }
+
+    &-end {
+        justify-content: flex-end;
+    }
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.position {
+    &-fixed {
+        position: fixed;
+    }
+
+    &-relative {
+        position: relative;
+    }
+
+    &-absolute {
+        position: absolute;
+    }
+}
+
+.shadow {
+    &-light {
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.2s;
+    }
+
+    &-heavy {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    &-hover{ // Hover on renew cards 
+        box-shadow: 0px 8px 6px rgba(0, 86, 135, 0.2);
+    }
+}
+
+.btn {
+    cursor: pointer;
+
+    &-primary { 
+        background-color: map-get($map: $colour, $key: "button-blue");
+        color: map-get($map: $colour, $key: "white");
+        border: none;
+        border-radius: 6px;
+    }
+
+    &-secondary {
+        height: 24px;
+        background-color: map-get($map: $colour, $key: "white");
+        padding-inline: 13px;
+        border-radius: 6px;
+        border: 1px solid  map-get($map: $colour, $key: "grey");
+        font-size: 12px;
+        color: map-get($map: $colour, $key: "grey");
+    }
+
+    &-cancel {
+        font-size: 16px;
+        color: map-get($map: $colour, $key: "dark-blue-text");
+        background-color: map-get($map: $colour, $key: "off-white");
+        border-radius: 12px;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.inactive {
+    display: none;
 }
 
 .menu {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 50px;
-    @include flexible (space-between,center,row);
-
+    @include fixed-alignment(0,0,50px,0);
+    
     &__left {
-        @include flexible(space-between,center,column);
         height: 100%;
         min-width: 227px;
         padding-top: 70px;
@@ -49,28 +266,23 @@ a {
     }
 
     &__center {
-        @include flexible(flex-start,flex-start,row);
-        width: 929px;
+        width: 930px;
         height: 580px;
-    }   
-
-    &__right {
-
-        @include flexible(flex-start,flex-end,column);
-        padding: 18px;
-        height: 100%;
-        width: 122px;
+        border-radius: 20px;
+        background-color: rgba(52, 138, 188, 0.04);
     }
 
-    &__card {
+    &__right {
+        padding: 18px;
+        height: 100%;
+    }
+
+    &__container {
         border-radius: 20px;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-        @include flexible(space-between,center,column);
         width: 509px;
         height: 100%;
 
         &__top {
-            @include flexible(space-between,center,row);
             height: 120px;
             padding: 20px;
             width: 100%;
@@ -78,68 +290,32 @@ a {
             background-color: map-get($map: $colour, $key: "maroon");
 
             &__content {
-                @include flexible(space-between,flex-start,column);
                 height: 100%;
-
-                &__p {
-                    font-family: 'Inter', sans-serif;
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: map-get($map: $colour, $key: "white");
-                }
-
+                color: map-get($map: $colour, $key: "white");
+    
                 &__btn {
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 600;
                     width: 127px;
                     height: 40px;
-                    background-color: map-get($map: $colour, $key: "button-blue");
-                    color: map-get($map: $colour, $key: "white");
-                    border: none;
-                    border-radius: 6px;
-                    cursor: pointer;
                 }
-            }
-
-            &__img {
-                height: 92px;
-                width: 92px;
             }
         }
 
         &__bottom {
-            width: 100%;
+            padding-top: 39px;
             border-radius: 0 0 20px 20px;
             background-color: map-get($map: $colour, $key: "white");
             flex: 1;
-            padding-top: 39px;
 
             &__p {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 600;
                 color: map-get($map: $colour, $key: "dark-blue-text");
-                font-size: 20px;
-                margin-inline: 33px;
+                margin-left: 33px;
             }
-        }
 
-        &__horizontalscroll {
-            padding-inline: 54px;
-            padding-top: 16px;
-            width: 100%;
-            height: 350px;
-            display: grid;
-            grid-auto-flow: column;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            gap: 16px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-
-            &::-webkit-scrollbar { 
-                display: none;
+            &__div {
+                padding-inline: 54px;
+                padding-top: 16px;
+                width: 100%;
+                height: 350px;
             }
         }
     }
@@ -148,9 +324,9 @@ a {
         list-style: none;
         padding-top: 42px;
         padding-left: 19px;
+        min-width: max-content;
 
         &__item {
-            @include flexible(flex-start,center,row);
             padding: 20px;
             gap: 18px;
             height: 90px;
@@ -165,113 +341,69 @@ a {
             &__content {
 
                 &__h {
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 600;
-                    font-size: 16px;
                     color: map-get($map: $colour, $key: "light-blue-text");
                     margin-bottom: 4px;
                 }
 
                 &__p {
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 300;
                     color: map-get($map: $colour, $key: "app-black");
-                    font-size: 15px;
                 }
             }
         }
     }
+}
 
-    &__profile {
-        position: relative;
-        @include flexible(flex-start,center,column);
-
-        &__userimg {
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-            border-radius: 45px;
-            height: 90px;
-            width: 90px;
-            margin-bottom: 28px;
-        }
-
-        &__username {
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            margin-bottom: 22px;
-            font-size: 15px;
-            color: map-get($map: $colour, $key: "app-black");
-        }
-
-        &__btn {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-            height: 24px;
-            background-color: map-get($map: $colour, $key: "white");
-            padding-inline: 13px;
-            border-radius: 6px;
-            border: 1px solid  map-get($map: $colour, $key: "grey");
-            font-size: 12px;
-            color: map-get($map: $colour, $key: "grey");
-            cursor: pointer;
-        }
-
-        &__grade {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-            padding: 2px 7px;
-            position: absolute;
-            border-radius: 17px;
-            top: 80px;
-            font-size: 13px;
-            color: map-get($map: $colour, $key: "white");
-            background-color: map-get($map: $colour, $key: "button-blue");
-        }
+.profile {
+    &__userimg {
+        border-radius: 45px;
+        height: 90px;
+        width: 90px;
+        margin-bottom: 28px;
     }
 
-    &__contact {
-        @include flexible(flex-end,center,column);
-
-        &__info {
-            font-family: 'lato', sans-serif;
-            font-weight: 400;
-            line-height: 25px;
-            text-align: center;
-            font-size: 12px;
-            color: map-get($map: $colour, $key: "text-grey");
-        }
-
-        &__btn {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-            margin-top: 14px;
-            height: 30px;
-            background-color: map-get($map: $colour, $key: "white");
-            padding-inline: 13px;
-            border-radius: 6px;
-            border: 1px solid  map-get($map: $colour, $key: "grey");
-            font-size: 12px;
-            color: map-get($map: $colour, $key: "grey");
-            cursor: pointer;
-        }
-
-        &__icon {
-            margin-right: 4px;
-            font-size: 12px;
-            color: #1BB7EA;
-        }
-
-        &__number {
-            font-size: 12px; 
-            color: map-get($map: $colour, $key: "app-black");
-        }
+    &__grade {
+        border-radius: 17px;
+        top: 80px;
+        padding: 2px 7px;
+        min-width: max-content;
+        color: map-get($map: $colour, $key: "white");
+        background-color: map-get($map: $colour, $key: "button-blue");
     }
 
-    &__logo {
-        height: 80px;
-        width: 80px;
+    &__username {
+        margin-bottom: 22px;
+        color: map-get($map: $colour, $key: "app-black");
+    }
+}
+
+.contact {
+    gap: 7px;
+    font-size: 12px;
+    color: map-get($map: $colour, $key: "text-grey");
+
+    &__number {
+        color: map-get($map: $colour, $key: "app-black");
+    }
+
+    &__icon {
+        color: map-get($map: $colour, $key: "icon-blue");
+        margin-right: 4px;
+    }
+}
+
+.horizontalscroll {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 16px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { 
+        display: none;
     }
 
     &__scrollcard {
@@ -280,136 +412,75 @@ a {
         height: 325px;
         min-width: 430px;
         scroll-snap-align: center;
-
+        color: map-get($map: $colour, $key: "white");
+        
         &__content {
-            @include flexible(space-between,flex-start,column);
             padding: 14px 0 20px 14px;
             height: 100%;
             width: 200px;
-
-            &__top {
-                @include flexible(flex-start,center,row);
-                gap: 14px;
-            }
-
-            &__logo {
-                height: 35px;
-                width: 35px;
-            }
-
-            &__p {
-                font-family: 'lato', sans-serif;
-                font-weight: 300;
-                font-size: 10px;
-                color: map-get($map: $colour, $key: "white");
-            }
-
-            &__bottom {
-                &__h {
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 600;
-                    font-size: 20px;
-                    color: map-get($map: $colour, $key: "white");
-                    margin-bottom: 4px;
-                }
-
-                &__p {
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 300;
-                    font-size: 14px;
-                    color: map-get($map: $colour, $key: "white");
-                }
-            }
         }
 
+        &__logo {
+            height: 35px;
+            width: 35px;
+            margin-right: 14px;
+        }
+
+        &__heading {
+            margin-bottom: 4px;
+        }
     }
 }
 
 .footer {
-    @include flexible(flex-end,center,row);
-    z-index: 1;
-    position: fixed;
     padding-inline: 13px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @include fixed-alignment(none,0,0,0);
     height: 50px;
     width: 100%;
 
     &__p {
         margin: 4px;
-        font-size: 12px;
         color: map-get($map: $colour, $key: "grey");
     }
 
     &__link {
-        font-size: 12px;
         color: map-get($map: $colour, $key: "grey");
         text-decoration: underline;
     }
 
     &__logo {
-        margin-right: 16px;
+        margin-left: 14px;
     }
 
-}
-
-.background {
-    z-index: 0;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    img {
-        height: 100%;
-        width: 100%;
-        object-fit: fill;
+    &__seperator {
+        margin: 0 4px;
     }
 
-    &--renew {
-        background-image: url("/assets/Cloud.png");
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-        background-color: #DFF3FD;
+    &__year {
+        color: map-get($map: $colour, $key: "app-black");
+        margin-left: 4px;
     }
 }
 
 .header {
-    @include flexible(flex-start,center,row);
     height: 64px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+    @include fixed-alignment(0,0,none,0);
     gap: 16px;
     padding-inline: 16px;
-    //background-color: map-get($map: $colour, $key: "dark-blue-text");
     background-image: url("/assets/Header Background.png");
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
+    min-width: max-content;
 
     &__btn {
         height: 32px;
         width: 32px;
         border-radius: 16px;
-        border: none;
-        background-color: #5893C5;
-        cursor: pointer;
-    }
-
-    &__h {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 22px;
-        color: map-get($map: $colour, $key: "white");
+        background-color: map-get($map: $colour, $key: "header-btn");
     }
 
     &__logo {
-        top: 18px;
-        right: 18px;
-        position: fixed;
+        @include fixed-alignment(18px,18px,none,none);
         width: 80px;
         height: 80px;
         border-radius: 40px;
@@ -417,264 +488,213 @@ a {
     }
 }
 
-.discount {
-    margin-left: 18px;
-    padding-inline: 20px;
-    gap: 20px;
+.page {
     margin-top: 124px;
-    @include flexible(flex-start,center,row);
-    height: 58px;
-    width: 614px;
-    background-color: #00C07B;
-    border-radius: 4px;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-bottom: 41px;
+    gap: 30px;
 
-    &__p {
-        flex: 1;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        font-size: 14px;
-        color: map-get($map: $colour, $key: "white");
-    }
-
-    &__icon {
-        color: map-get($map: $colour, $key: "white");
-    }
-
-    &__btn {
-        font-size: 16px;
-        color: #1268B3;
-        border-radius: 12px;
-        width: 24px;
-        height: 24px;
-        border: none;
-        cursor: pointer;
+    &__bottom {
+        gap: 16px;
     }
 }
 
-.renew {
-    gap: 16px;
-    @include flexible(flex-start,flex-start,row);
-    padding: 18px;
-     //remove
+.notification {
+    padding: 20px;
+    gap: 20px;
+    height: 58px;
+    max-width: 614px;
+    min-width: max-content;
+    background-color: map-get($map: $colour, $key: "green");;
+    border-radius: 4px;
 
-    &__left {
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        width: 614px;
-        background-color: white;
+
+    &__p {
+        flex: 1; 
+    }
+}
+
+.renewcard {
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    background-image: linear-gradient(to right,map-get($map: $colour, $key: "card-white"),map-get($map: $colour, $key: "card-blue"));
+
+    &__top {
+        width: 100%;
+        height: 36px;
+
+        &--upgrade {
+            background: linear-gradient(to right,rgba(14,199,255,0.1),rgba(220,5,255,0.1));
+        }
+
+        &__p {
+            flex: 1;
+            border-radius: 8px 0px 0px 0px;
+            height: 100%;
+            padding-left: 20px;
+        }
+
+        &__btn {
+            border-radius: 0px 8px 0px 0px;
+            //width: 122px;
+            height: 100%;
+            background-color: transparent;
+            background-size: 100% 100%;
+            padding-left: 42px;
+            padding-right: 20px;
+
+            &--upgrade {
+                background-image: url("/assets/upgrade-btn.svg");
+            }
+
+            &--subscribe {
+                background-image: url("/assets/subscribe-btn.svg");
+            }
+
+            &--renew {
+                background-image: url("/assets/renew-btn.svg");
+            }
+
+            &--trial {
+                background-image: url("/assets/free-trial-btn.svg");
+            }
+        }
     }
 
-    &__recommended {
-        background-image: linear-gradient(rgba(0,0,0,0),#ECF9FF);
-        padding-inline: 105px;
-        padding-bottom: 10px;
+    &__bottom {
+        height: 164px;
+        padding: 20px;
+
+        &__start {
+            margin-bottom: 10px;
+        }
+    }
+    
+    &__info {
+        margin-bottom: 24px;
+
+        &__coupon {
+            font-style: italic;
+
+            span {
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+.container {
+    border-radius: 20px;
+    width: 614px;
+    background-color: map-get($map: $colour, $key: "white");
+
+    &__top {
+        background-image: linear-gradient(transparent,map-get($map: $colour, $key: "container-background"));
+        padding: 30px;
         width: 100%;
     }
 
-    &__other {
-        padding-inline: 105px;
+    &__bottom {
         padding-top: 20px;
+        padding-bottom: 36px;
     }
 
-    &__h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 20px;
-        color: map-get($map: $colour, $key: "navy");
+    &__heading {
         margin-bottom: 20px;
     }
-
-    &__h3 {
+    
+    &__subheading {
         margin-bottom: 10px;
 
-        &__right {
-            @include flexible(flex-start,flex-end,row);
-        }
-
-        &__arrow {
+        img {
             height: 15px;
             width: 15px;
             margin-right: 5px;
         }
-
-        &__p {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 12px;
-            color: map-get($map: $colour, $key: "navy");
-        }
     }
 
-    &__card {
-        margin-bottom: 20px;
-        border-radius: 8px;
-        //background-color: lightblue;
-        background-image: url("/assets/renew-card-background.png");
-        background-position: -3px;
+    &__cardlist {
+        gap: 20px;
+    }
+
+    &__group {
         width: 404px;
-        height: 200px;
+    }
+}
 
-        &__top {
-            @include flexible(flex-end,center,row);
-            width: 100%;
-            height: 36px;
+.sidecontainer {
+    margin-top: 16px;
+    border-radius: 20px;
+    background-color: map-get($map: $colour, $key: "white");
+    width: 299px;
+    padding: 20px;
+    height: max-content;
+    gap: 10px;
 
-            &__p {
-                flex: 1;
-                border-radius: 8px 0px 0px 0px;
-                background-image: linear-gradient(to right,rgba(14,199,255,0.1),rgba(220,5,255,0.1));
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 500;
-                font-size: 14px;
-                height: 100%;
-                @include flexible(flex-start,center,row);
-                color: map-get($map: $colour, $key: "navy");
-                padding-left: 20px;
-                flex: 1;
-            }
+    &__msg {
+        gap: 10px;
+    }
 
-            &__btn {
-                border-radius: 0px 8px 0px 0px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 700;
-                font-size: 12px;
-                color: map-get($map: $colour, $key: "white");
-                width: 102px;
-                height: 100%;
-                border: none;
+    &__btn {
+        border-radius: 4px;
+        height: 40px;
+        width: 100%;
+        background-color: map-get($map: $colour, $key: "btn-background");
+        color: map-get($map: $colour, $key: "btn-blue");
+        transition: all 0.05s;
 
-                &--recommended {
-                    background-image: linear-gradient(to right,#FF2DB8,#0260B8);
-                }
+        &--active {
+            background-color: map-get($map: $colour, $key: "button-blue");
+            color: map-get($map: $colour, $key: "white");
+        }
+    }
+}
 
-                &--other {
-                    background-image: linear-gradient(to right,#43E8FF,#00CFFC);
-                }
-            }
+.background {
+    &--renew {
+        background-image: url("/assets/Cloud.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+}
+
+.inputnode {
+
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    padding-inline: 10px;
+    gap: 10px;
+    border: 1px solid map-get($map: $colour, $key: "input-grey");
+    transition: border 0.05s;
+
+    input {
+        height: 100%;
+        flex: 1;
+        border: none;
+
+        &::placeholder {
+            color: 1px solid map-get($map: $colour, $key: "input-grey");
+            font-size: 12px;
+            font-weight: 400;
         }
 
-        &__bottom {
-            height: 164px;
-            padding: 20px;
-
-            &__start {
-                margin-bottom: 10px;
-                @include flexible(space-between,center,row);
-            }
-
-            &__validity {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 700;
-                font-size: 12px;
-                color: map-get($map: $colour, $key: "navy");
-            }
-
-            &__oldprice {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 500;
-                font-size: 14px;
-                color: map-get($map: $colour, $key: "navy");
-                text-decoration: line-through; 
-            }
-        }
-
-        &__offers {
-            @include flexible(space-between,flex-end,row);
-        }
-
-        &__info {
-            @include flexible(space-between,flex-end,row);
-            margin-bottom: 24px;
-
-            &__heading {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 700;
-                font-size: 18px;
-                color: map-get($map: $colour, $key: "maroon");
-            }
-
-            &__sub {
-                @include flexible(flex-start,top,row);
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 500;
-                font-size: 10px;
-                color: map-get($map: $colour, $key: "navy");
-            }
-
-            &__coupon {
-                @include flexible(flex-end,top,row);
-                font-family: 'Montserrat', sans-serif;
-                font-style: italic;
-                font-weight: 500;
-                font-size: 10px;
-                color: map-get($map: $colour, $key: "navy");
-
-                span {
-                    margin-right: 4px;
-                    font-size: 16px;
-                }
-            }
-
-            &__end {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 500;
-                font-size: 12px;
-                color: map-get($map: $colour, $key: "navy");
-            }
-
-            &__coupon {
-
-            }
+        &:focus {
+            outline: none;
         }
     }
 
-    &__right {
-        margin-top: 16px;
-        align-self: top;
-        border-radius: 20px;
-        background-color: white;
-        min-width: 299px;
-        height: 158px;
-        padding: 20px;
+    &--active {
+        border: 0.5px solid map-get($map: $colour, $key: "input-dark-grey");
+    }
 
-        &__p {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 12px;
-            color: map-get($map: $colour, $key: "navy");
-            margin-bottom: 10px;
-        }
+    &--error {
+        border: 0.5px solid map-get($map: $colour, $key: "maroon");
+    }
 
-        &__input {
-            height: 40px;
-            width: 100%;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border: 1px solid #D5D5D5;
-
-            &::placeholder {
-                color: #D5D5D5;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 400;
-                font-size: 12px;
-                padding-inline: 10px;
-            }
-        }
-
-        &__btn {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            border-radius: 4px;
-            height: 40px;
-            width: 100%;
-            border: none;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-            background-color: #D1EFFE;
-            color: #76CFFC;
-            cursor: pointer;
-        }
+    &--success {
+        border: 0.5px solid map-get($map: $colour, $key: "success-green");
     }
 }

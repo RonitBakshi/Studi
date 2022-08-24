@@ -75,11 +75,17 @@ body {
 .fc-white {
   color: #ffffff;
 }
+.fc-label-grey {
+  color: #95AFBE;
+}
 
 .td-line-through {
   text-decoration: line-through;
 }
 
+.lh-15 {
+  line-height: 15px;
+}
 .lh-18 {
   line-height: 18px;
 }
@@ -90,6 +96,16 @@ body {
 a {
   text-decoration: none;
   cursor: pointer;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-30 {
+  gap: 30px;
 }
 
 .d-flex {
@@ -291,6 +307,9 @@ a {
   color: #1BB7EA;
   margin-right: 4px;
 }
+.contact__btn {
+  display: none;
+}
 
 .horizontalscroll {
   display: grid;
@@ -420,6 +439,7 @@ a {
   width: 100%;
   height: 200px;
   background-image: linear-gradient(to right, #E5F6FF, #BBE7FF);
+  border: 1px solid #CBEDFF;
 }
 .renewcard__top {
   width: 100%;
@@ -484,6 +504,11 @@ a {
 .container__bottom {
   padding-top: 20px;
   padding-bottom: 36px;
+  padding-inline: 30px;
+}
+.container__bottom--invoice {
+  padding-top: 35px;
+  padding-bottom: 92px;
 }
 .container__heading {
   margin-bottom: 20px;
@@ -528,6 +553,9 @@ a {
 .sidecontainer__btn--active {
   background-color: #1AAFFA;
   color: #ffffff;
+}
+.sidecontainer__list {
+  margin-left: 13px;
 }
 
 .background--renew {
@@ -576,4 +604,228 @@ a {
 }
 .inputnode--success {
   border: 0.5px solid #02B55C;
+}
+
+.invoice__input {
+  width: 100%;
+  min-height: 43px;
+  border: 1px solid #D5D5D5;
+  border-radius: 4px;
+  padding-inline: 10px;
+  flex: 1;
+}
+.invoice__input:focus {
+  outline: 0.5px solid #414141;
+}
+.invoice__input--disabled {
+  background-color: #F0F7FD;
+  border: none;
+}
+.invoice__btn {
+  height: 40px;
+  flex: 1;
+  color: #4A97C6;
+  border-color: #4A97C6;
+}
+.invoice__btn:hover {
+  background-color: #1AAFFA;
+  color: #ffffff;
+  border-color: #1AAFFA;
+  transition: all 0.1s;
+}
+
+@media (max-width: 900px) {
+  body {
+    background-color: #F8FCFD;
+  }
+  .menu {
+    overflow: auto;
+    position: static;
+    flex-direction: column;
+    background: none;
+  }
+  .menu__left {
+    width: 100%;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  .menu__center {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    flex-direction: column;
+    background: none;
+  }
+  .menu__right {
+    display: none;
+  }
+  .menu__container {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+  .menu__container__top {
+    border-radius: 0;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    width: 100%;
+  }
+  .menu__container__top__content {
+    gap: 10px;
+  }
+  .menu__container__top__content__btn {
+    font-size: 12px;
+    font-weight: 600;
+    width: 114px;
+    height: 34px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .menu__container__bottom {
+    padding-top: 27px;
+    padding-bottom: 22px;
+    border-radius: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .menu__container__bottom__p {
+    font-size: 18px;
+    margin: 0;
+  }
+  .menu__container__bottom__div {
+    height: auto;
+  }
+  .menu__list {
+    width: 100%;
+    padding: 0 0 10px 0;
+    background: none;
+    background-color: #F8FCFD;
+  }
+  .profile {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+  .profile div {
+    flex: 1;
+    align-items: flex-start;
+  }
+  .profile div div {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .profile__userimg {
+    border-radius: 45px;
+    height: 65px;
+    width: 65px;
+    margin: 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .profile__grade {
+    font-size: 15px;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    color: #202020;
+    background-color: transparent;
+  }
+  .profile__username {
+    margin: 0;
+    color: #202020;
+  }
+  .contact {
+    display: none;
+  }
+  .contact__btn {
+    display: inline;
+    width: 100%;
+    height: 40px;
+    color: #4A97C6;
+    border-color: #4A97C6;
+    margin-bottom: 10px;
+  }
+  .horizontalscroll__scrollcard {
+    height: 276px;
+    min-width: 320px;
+  }
+  .footer {
+    flex-direction: column;
+    position: static;
+    padding-inline: 13px;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    margin-bottom: 68px;
+    width: 100%;
+    justify-content: center;
+  }
+  .footer__logo {
+    display: none;
+  }
+  .footer__img {
+    display: none;
+  }
+  .header__logo {
+    display: none;
+  }
+  .page {
+    margin-top: 94px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 41px;
+    gap: 0;
+    align-items: center;
+  }
+  .page__bottom {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+  .notification {
+    margin-left: 18px;
+    margin-right: 18px;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    max-width: no;
+    min-width: 0;
+  }
+  .container {
+    border-radius: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+  .container__top {
+    padding-inline: 18px;
+  }
+  .container__bottom {
+    padding-inline: 18px;
+  }
+  .container__group {
+    max-width: 404px;
+    width: 100%;
+  }
+  .sidecontainer {
+    margin-top: 0;
+    border-radius: 0;
+    padding-inline: 18px;
+    width: 100%;
+    gap: 10px;
+    max-width: 500px;
+  }
+  .background--renew {
+    background-image: none;
+    background-color: #ffffff;
+  }
 }/*# sourceMappingURL=main.css.map */

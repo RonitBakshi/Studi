@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Lato:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Order Summary</title>
+</head>
+<body class="background--renew">
+    <header class="header d-flex align-items-center position-fixed">
+
+        <button class="header__btn btn btn-primary d-flex align-items-center justify-content-center">
+            <img src="assets/haeder-back-btn.png" alt="">
+        </button>
+
+        <h1 class="header__h fw-medium fs-22 fc-white">
+            Order Summary
+        </h1>
+
+        <div class="header__logo position-fixed">
+        </div>
+        
+    </header>
+
+    <div class="page d-flex flex-column">
+
+        <div class="page__bottom d-flex fc-navy">
+            <div class="container shadow-heavy">
+    
+                <div class="container__top d-flex align-items-center flex-column">
+                    <div class="container__group">
+    
+                        <h2 class="container__heading fw-medium fs-20">
+                            Review Order Summary
+                        </h2>
+            
+                        <div class="container__subheading">
+                            <div class="d-flex">
+                                <img src="assets/Arrow.png" alt="" class="renew__subheading__arrow">
+                                <h3 class="renew__subheading__p fs-12 fw-medium">
+                                    Selected Plan
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="container__cardlist d-flex flex-column">
+                            <div class="renewcard">
+        
+                                <div class="renewcard__top renewcard__top--upgrade d-flex align-items-center justify-content-end">
+                                    <p class="renewcard__top__p family-primary fw-normal fs-14 d-flex align-items-center">
+                                        <span class="fw-bold">
+                                            Save &#8377; 333 
+                                        </span>
+                                        per month
+                                    </p>
+                                    <button class="renewcard__top__btn renewcard__top__btn--upgrade family-primary fw-bold fs-12 btn-primary btn"> 
+                                        Upgrade
+                                    </button>
+                                </div>
+        
+                                <div class="renewcard__bottom">
+            
+                                    <div class="renewcard__bottom__start d-flex justify-content-space-between align-items-center">
+                                        <p class="family-primary fw-normal fs-12 lh-18">
+                                            <span class="fw-bold">365 Days</span> validity
+                                        </p>
+
+                                        <p class="family-primary fw-normal fs-14 td-line-through lh-18">
+                                            &#8377; 6625
+                                        </p>
+                                    </div>
+            
+                                    <div class="renewcard__info ">
+            
+                                        <div class="d-flex justify-content-space-between fw-bold fs-18 fc-maroon lh-22">
+                                            <p class="family-primary">
+                                                Yearly Plan
+                                            </p >
+                                            <p class="family-primary">
+                                                &#8377; 4968
+                                            </p>
+                                        </div>
+            
+                                        <div class="d-flex justify-content-space-between fw-normal fs-10 lh-18">
+                                            <p class="family-primary">
+                                                (Non-Refundable)
+                                            </p>
+                                            <p class="family-primary">
+                                                Only <span class="fw-bold">&#8377; 440</span> pm
+                                            </p>
+                                        </div>
+            
+                                    </div>
+            
+                                    <div class="d-flex justify-content-space-between align-items-end">
+        
+                                        <div class="family-primary fs-12 fw-normal lh-18">
+                                            Plan ends on <br>
+                                            <span class="fw-bold">15-August 2023</span>
+                                        </div>
+            
+                                        <div class="renewcard__info__coupon d-flex align-items-center family-primary fw-normal fs-10 lh-18">
+                                            <span class="material-icons-outlined fs-16">local_offer</span> 
+                                            <span>
+                                                Coupon <span class="fw-bold">Sale25</span>applied
+                                            </span>
+                                        </div>
+        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+           
+                    </div>
+                </div>
+
+                <div class="container__bottom container__bottom--invoice d-flex align-items-center flex-column">
+                    <div class="container__group invoice">
+                        
+                            <div class="container__subheading">
+                                <h3 class="renew__subheading__p fw-medium fs-14">
+                                    Invoicing Details
+                                </h3>
+                            </div>
+
+                            <div class="d-flex flex-column gap-30">
+                                
+                                    <div class="d-flex flex-column gap-10">
+                                        <div class="d-flex flex-column gap-5">
+                                            <p class="fc-label-grey family-primary fw-normal fs-12 lh-15">Name on invoice*</p>
+                                            <input class="invoice__input family-primary fw-normal fs-12 fc-navy" type="text">
+                                        </div>
+            
+                                        <div class="d-flex flex-column gap-5">
+                                            <p class="fc-label-grey family-primary fw-normal fs-12 lh-15">Email*</p>
+                                            <input class="invoice__input family-primary fw-normal fs-12 fc-navy" type="text">
+                                        </div>
+            
+                                        <div class="d-flex flex-column gap-5">
+                                            <p class="fc-label-grey family-primary fw-normal fs-12 lh-15">PIN Code*</p>
+                                            <div class="d-flex gap-10">
+                                                <input class="invoice__input family-primary fw-normal fs-12 fc-navy" type="text">
+                                                <input class="invoice__input invoice__input--disabled family-primary fw-normal fs-12 fc-navy" type="text" disabled="true">
+                                            </div>
+                                        </div>
+            
+                                        <div class="d-flex flex-column gap-5">
+                                            <p class="fc-label-grey family-primary fw-normal fs-12 lh-15">GST Number</p>
+                                            <input class="invoice__input family-primary fw-normal fs-12 fc-navy" type="text">
+                                        </div>
+                                    </div>
+                            
+                                
+                                    <div class="d-flex gap-10">
+                                        <button class="invoice__btn btn-secondary btn family-primary fs-14 fw-medium shadow-light">Select another plan</button>
+                                        <button class="invoice__btn btn-secondary btn family-primary fs-14 fw-medium shadow-light">Proceed to Pay</button>
+                                    </div>
+
+                            </div>   
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidecontainer d-flex flex-column ">
+                <h3 class="sidecontainer__p fw-medium fs-12">
+                    Subscription Terms
+                </h3>
+
+                <ul class="sidecontainer__list family-primary fs-12 fw-light">
+                    <li>We do not offer a refund on this plan.</li>
+                    <br>
+                    <li>
+                        In the case of an auto-renewal cycle, you    
+                        can place a request to discontinue your    
+                        plan at any time. However, the 
+                        cancellation will take effect only at the 
+                        end of the billing cycle, thus allowing  
+                        the content to be available for that 
+                        billing cycle. ​​
+                    </li>
+                    <br>
+                    <li>
+                        With this plan, you can change your 
+                        child’s grade once during the 1-year 
+                        billing cycle.​
+                    </li>
+                    <br>
+                    <li>
+                        Inclusive of all taxes.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

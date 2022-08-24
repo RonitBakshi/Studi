@@ -23,15 +23,19 @@
 
             <div class="profile position-relative d-flex flex-column align-items-center">
                 <img src="assets/User.png" alt="" class="profile__userimg shadow-light">
-                <h3 class="profile__grade position-absolute shadow-light fs-13 fw-light">
-                    Grade 4
-                </h3>
-                <p class="profile__username fw-bold fs-15">
-                    Mayank
-                </p>
-                <button class="btn btn-secondary shadow-light family-primary fw-normal">
-                    Sign out
-                </button>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="profile__username fw-bold fs-15">
+                            Mayank
+                        </p>
+                        <button class="btn btn-secondary shadow-light family-primary fw-normal">
+                            Sign out
+                        </button>
+                    </div>
+                    <h3 class="profile__grade position-absolute shadow-light fs-13 fw-light">
+                        Grade 4
+                    </h3>
+                </div>
             </div>
 
             <div class="contact fw-light fs-12 d-flex flex-column align-items-center">
@@ -255,7 +259,6 @@
                         </p>
                     </div>
                 </a>
-
             </ul>
         </div>
         <div class="menu__right">
@@ -264,6 +267,9 @@
     </div>
 
     <footer class="footer d-flex align-items-center justify-content-end position-fixed fs-12 fw-light">
+        <button class="contact__btn btn btn-secondary family-primary fw-medium fs-12 shadow-light">
+            Contact Support
+        </button>
 
         <p class="footer__p d-flex align-items-center">
             <a class="footer__link" href="">Terms of Use</a>
@@ -273,7 +279,7 @@
             <a class="footer__link" href="">Privacy policy</a>
         </p>
 
-        <p class="footer__logo d-flex align-items-center">
+        <div class="footer__logo d-flex align-items-center">
             <p class="footer__p">
                 &#169;
             </p>
@@ -281,7 +287,7 @@
             <p class="footer__year">
                 2020
             </p>
-        </p>  
+        </div>  
 
     </footer>
 

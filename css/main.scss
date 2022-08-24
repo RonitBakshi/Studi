@@ -7,8 +7,10 @@ $colour : (
     "icon-blue": #1BB7EA,
     "navy" : #006299,
     "app-black": #202020,
-    "grey": #969696,
+    "grey": #969696, 
+    "input-blue-background": #F0F7FD,
     "text-grey": #757575,
+    "label-grey":#95AFBE,
     "off-white": #F0F7FC,
     "card-white": #E5F6FF,
     "card-blue": #BBE7FF,
@@ -20,9 +22,12 @@ $colour : (
     "btn-blue": #76CFFC,
     "green": #00C07B,
     "success-green": #02B55C,
-    "header-btn": #5893C5
+    "header-btn": #5893C5,
+    "list-background": #F8FCFD,
+    "card-border-blue": #CBEDFF
 );
 
+$mobile : 900px;
 $family-primary :'Montserrat', sans-serif;
 $family-secondary : 'lato', sans-serif;
 
@@ -130,6 +135,10 @@ body {
     &-white {
         color: map-get($map: $colour, $key: "white");
     }
+
+    &-label-grey {
+        color: map-get($map: $colour, $key: "label-grey");
+    }
 }
 
 .td {
@@ -140,6 +149,10 @@ body {
 }
 
 .lh {
+    &-15 {
+        line-height: 15px;
+    }
+
     &-18 {
         line-height: 18px;
     }
@@ -152,6 +165,20 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
+}
+
+.gap {
+    &-5 {
+        gap: 5px;
+    }
+
+    &-10 {
+        gap: 10px;
+    }
+
+    &-30 {
+        gap: 30px;
+    }
 }
 
 .d-flex {
@@ -254,6 +281,8 @@ a {
 .inactive {
     display: none;
 }
+
+// Menu Styles
 
 .menu {
     @include fixed-alignment(0,0,50px,0);
@@ -389,6 +418,10 @@ a {
         color: map-get($map: $colour, $key: "icon-blue");
         margin-right: 4px;
     }
+
+    &__btn {
+        display: none;
+    }
 }
 
 .horizontalscroll {
@@ -462,6 +495,8 @@ a {
     }
 }
 
+//Renew Page Styles
+
 .header {
     height: 64px;
     @include fixed-alignment(0,0,none,0);
@@ -520,6 +555,7 @@ a {
     width: 100%;
     height: 200px;
     background-image: linear-gradient(to right,map-get($map: $colour, $key: "card-white"),map-get($map: $colour, $key: "card-blue"));
+    border: 1px solid map-get($map: $colour, $key: "card-border-blue");
 
     &__top {
         width: 100%;
@@ -599,6 +635,12 @@ a {
     &__bottom {
         padding-top: 20px;
         padding-bottom: 36px;
+        padding-inline: 30px;
+
+        &--invoice {
+            padding-top: 35px;
+            padding-bottom: 92px;
+        }
     }
 
     &__heading {
@@ -650,6 +692,10 @@ a {
             color: map-get($map: $colour, $key: "white");
         }
     }
+
+    &__list {
+        margin-left: 13px;
+    }
 }
 
 .background {
@@ -696,5 +742,271 @@ a {
 
     &--success {
         border: 0.5px solid map-get($map: $colour, $key: "success-green");
+    }
+}
+
+.invoice {
+    //background-color: lightcoral;
+
+    &__input {
+        width: 100%;
+        min-height: 43px;
+        border: 1px solid map-get($map: $colour, $key: "input-grey");
+        border-radius: 4px;
+        padding-inline: 10px;
+        flex: 1;
+
+        &:focus {
+            outline :0.5px solid map-get($map: $colour, $key: "input-dark-grey");
+        }
+
+        &--disabled {
+            background-color: map-get($map: $colour, $key: "input-blue-background");
+            border: none;
+        }
+    }
+
+    &__btn {
+        height: 40px;
+        flex: 1;
+        color: map-get($map: $colour, $key: "light-blue-text");
+        border-color: map-get($map: $colour, $key: "light-blue-text");
+
+        &:hover{
+            background-color: map-get($map: $colour, $key: "button-blue");
+            color: map-get($map: $colour, $key: "white");
+            border-color: map-get($map: $colour, $key: "button-blue");
+            transition: all 0.1s;
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    body {
+        background-color: map-get($map: $colour, $key: "list-background");
+    }
+
+    .menu {
+        //@include fixed-alignment(0,0,0,0);
+        overflow: auto;
+        position: static;
+        flex-direction: column;
+        background: none;
+
+        &__left {
+            width: 100%;
+            height: max-content;
+            padding: 0;
+            background-color: map-get($map: $colour, $key: "white");
+        }
+
+        &__center {
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            flex-direction: column;
+            background: none;
+        }
+    
+        &__right {
+            display: none;
+        }
+    
+        &__container {
+            width: 100%;
+            height: auto;
+            box-shadow: none;
+    
+            &__top {
+                border-radius: 0;
+                height: max-content;
+                width: 100%;
+    
+                &__content {
+                    gap: 10px;
+
+                    &__btn {
+                        font-size: 12px;
+                        font-weight: 600;
+                        width: 114px;
+                        height: 34px;
+                        font-family: $family-primary;
+                    }
+                }
+            }
+    
+            &__bottom {
+                padding-top: 27px;
+                padding-bottom: 22px;
+                border-radius: 0;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+    
+                &__p {
+                    font-size: 18px;
+                    margin: 0;
+                }
+    
+                &__div {
+                    height: auto;
+                }
+            }
+        }
+    
+        &__list {
+            width: 100%;
+            padding: 0 0 10px 0;
+            background: none;
+            background-color: map-get($map: $colour, $key: "list-background");
+        }
+    }
+
+    .profile {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 20px;
+        gap: 20px;
+
+        div {
+            flex: 1;
+            align-items: flex-start;
+
+            div {
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
+        &__userimg {
+            border-radius: 45px;
+            height: 65px;
+            width: 65px;
+            margin: 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    
+        &__grade {
+            font-size: 15px;
+            position: static;
+            box-shadow: none;
+            padding: 0;
+            min-width: max-content;
+            color: map-get($map: $colour, $key: "app-black");
+            background-color: transparent;
+        }
+    
+        &__username {
+            margin: 0;
+            color: map-get($map: $colour, $key: "app-black");
+        }
+    }
+
+    .contact {
+        display: none;
+
+        &__btn {
+            display: inline;
+            width: 100%;
+            height: 40px;
+            color: map-get($map: $colour, $key: "light-blue-text");
+            border-color: map-get($map: $colour, $key: "light-blue-text");
+            margin-bottom: 10px;
+        }
+    }
+
+    .horizontalscroll {
+    
+        &__scrollcard {
+            height: 276px;
+            min-width: 320px;
+        }
+    }
+
+    .footer {
+        flex-direction: column;
+        position: static;
+        padding-inline: 13px;
+        height: max-content;
+        margin-bottom: 68px;
+        width: 100%;
+        justify-content: center;
+    
+        &__logo {
+            display: none;
+        }
+
+        &__img {
+            display: none;
+        }
+    }
+    
+    //Renew Page Styles
+
+    .header {
+        &__logo {
+            display: none;
+        }
+    }
+    
+    .page {
+        margin-top: 94px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 41px;
+        gap: 0;
+        align-items: center;
+    
+        &__bottom {
+            width: 100%;
+            flex-direction: column;
+            gap: 0;
+            align-items: center;
+        }
+    }
+
+    .notification {
+        margin-left: 18px;
+        margin-right: 18px;
+        height: max-content;
+        max-width: no;
+        min-width: 0;
+    }
+
+    .container {
+        border-radius: 0;
+        width: 100%;
+        box-shadow: none;
+
+        &__top {
+            padding-inline: 18px;
+        }
+
+        &__bottom {
+            padding-inline: 18px; 
+        }
+
+        &__group {
+            max-width: 404px;
+            width: 100%;
+        }
+    }
+
+    .sidecontainer {
+        margin-top: 0;
+        border-radius: 0;
+        padding-inline: 18px;
+        width: 100%;
+        gap: 10px;
+        max-width: 500px;
+    }
+
+    .background {
+        &--renew {
+            background-image: none;
+            background-color: map-get($map: $colour, $key: "white");;
+        }
     }
 }
